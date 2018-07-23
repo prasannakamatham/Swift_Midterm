@@ -12,28 +12,15 @@ class Product: Manufacturer
 {
     var ProductId: Int!
     var ProductName: String?
-    var Price: Int!
+    var Price: Double!
     var Quantity: Int!
-    
-    override init()
-    {
-        super.init()
-        ProductId = 1
-        ProductName = ""
-        Price = 100
-    }
-    
-    init(ProductId: Int, ProductName: String, Price: Int, Quantity: Int)
-    {
+ 
+    init(ProductId : Int, ProductName : String, Price : Double, Quantity : Int, ManufacturerId :Int, ManufacturerName: String) {
+        super.init(ManufacturerId: ManufacturerId, ManufacturerName: ManufacturerName)
         self.ProductId = ProductId
         self.ProductName = ProductName
         self.Price = Price
-    }
-    
-    override func IDisplay()
-    {
-        super.IDisplay()
-        print("ProductId: \(self.ProductId) \tProductName: \(String(describing: self.ProductName)) \tPrice: \(String(describing: self.Price))")
+        self.Quantity = Quantity
     }
     
 }

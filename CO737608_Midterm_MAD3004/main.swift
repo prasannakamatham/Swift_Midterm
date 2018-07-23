@@ -10,7 +10,5 @@ import Foundation
 
 print("Hello, World!")
 
-var p1 = Product()
-
-p1.IDisplay()
+var O1 = Order(OrderId: 1, OrderDate: Utility.getDate(year: 2018, month: 07, day: 01), ProductArray: [Product(ProductId: 1, ProductName: "HP", Price: 100.0, Quantity: 1, ManufacturerId: 001, ManufacturerName: "HP")])
 
