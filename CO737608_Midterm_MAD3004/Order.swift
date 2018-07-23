@@ -8,39 +8,46 @@
 
 import Foundation
 
-class Order : Product{
+class Order
+{
     
     var OrderId : Int!
     var OrderDate : Date!
-    var OrderTotal : Double
+    var OrderTotal : Double!
+    var ProductArray: [Product]?
+    var dict = [Int: Order]()
+    init()
     {
-        get
-        {
-            return Price!
+        self.OrderId = -1
+        self.OrderDate = Utility.getDate(year: <#T##Int#>, month: <#T##Int#>, day: <#T##Int#>)
+        self.ProductArray = [Product]()
+    }
+    
+    init(OrderId: Int, OrderDate: Date!, ProductArray: [Product]) {
+        self.OrderId = OrderId
+        self.OrderDate = OrderDate
+        self.ProductArray = ProductArray
+    }
+    func OrderDetails(OrderId : Int)
+    {
+        print("Order ID: \(OrderId) Order Date: \(OrderDate!) ")
+    }
+    
+    func display()
+    {
+        print("Order Id: \(self.OrderId), Order Date: \(Utility.getDate(year: <#T##Int#>, month: <#T##Int#>, day: <#T##Int#>))")
+        
+        if let ProductArray = self.ProductArray {
+            for Product in ProductArray{
+                Product.ProductDetails()
+            }
         }
     }
-    let ProductArray = [
-        Product(ProductId: 1, ProductName: "Hard Drive", Price: 100.0, Quantity: 1, ManufacturerId: 001, ManufacturerName: "HP"),
-        Product(ProductId: 2, ProductName: "Zip Drive", Price: 60.0, Quantity: 1, ManufacturerId: 002, ManufacturerName: "Lenovo"),
-        Product(ProductId: 3, ProductName: "Floppy Drive", Price: 30.0, Quantity: 1, ManufacturerId: 003, ManufacturerName: "Cgate"),
-        Product(ProductId: 4, ProductName: "Monitor", Price: 250.0, Quantity: 1, ManufacturerId: 004, ManufacturerName: "Dell"),
-        Product(ProductId: 5, ProductName: "iPhone X", Price: 1400.0, Quantity: 1, ManufacturerId: 005, ManufacturerName: "Apple")]
     
-    //    func totalPrice(Price : Double...)->Double{
-    //        var total : Double = price!
-    //        for m in Price{
-    //            total+=m
-    //        }
-    //        return total
-    //    }
-    
-    func getOrderById(){
+    func getOrderById(OrderId : Int, dict: [Int: Order])
+    {
+        
         
     }
     
-    init(OrderId:Int,OrderDate:Date!,ProductArray:[Product])
-     {
-        super.init()
-     }
-
 }

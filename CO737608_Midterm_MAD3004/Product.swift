@@ -14,8 +14,14 @@ class Product: Manufacturer
     var ProductName: String?
     var Price: Double!
     var Quantity: Int!
+    
+    override init()
+    {
+        super.init()
+    }
  
-    init(ProductId : Int, ProductName : String, Price : Double, Quantity : Int, ManufacturerId :Int, ManufacturerName: String) {
+    init(ProductId : Int, ProductName : String, Price : Double, Quantity : Int, ManufacturerId :Int, ManufacturerName: String)
+    {
         super.init(ManufacturerId: ManufacturerId, ManufacturerName: ManufacturerName)
         self.ProductId = ProductId
         self.ProductName = ProductName
@@ -23,4 +29,8 @@ class Product: Manufacturer
         self.Quantity = Quantity
     }
     
+    func ProductDetails()
+    {
+        print("Product ID: \(ProductId), Product Name: \(String(describing: ProductName)), Quantity: \(Quantity), Manufacturer: \(String(describing: ManufacturerName))")
+    }
 }
